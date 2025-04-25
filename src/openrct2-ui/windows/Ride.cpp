@@ -3567,10 +3567,26 @@ namespace OpenRCT2::Ui::Windows
 
                 ft.Rewind();
                 ft.Increment(10);
-                ft.Add<StringId>(STR_FORMAT_SECONDS);
-                ft.Add<uint16_t>(ride->minWaitingTime);
-                ft.Add<StringId>(STR_FORMAT_SECONDS);
-                ft.Add<uint16_t>(ride->maxWaitingTime);
+                int minWait = ride->minWaitingTime;
+                int maxWait = ride->maxWaitingTime;
+
+                ft.Rewind();
+                ft.Increment(10);
+
+                if (minWait == 1) {
+                    ft.Add<StringId>(STR_FORMAT_SECOND);
+                }
+                else {
+                    ft.Add<StringId>(STR_FORMAT_SECONDS);
+                }
+                ft.Add<uint16_t>(minWait);
+                if (maxWait == 1) {
+                    ft.Add<StringId>(STR_FORMAT_SECOND);
+                }
+                else {
+                    ft.Add<StringId>(STR_FORMAT_SECONDS);
+                }
+                ft.Add<uint16_t>(maxWait);
 
                 if (ride->departFlags & RIDE_DEPART_WAIT_FOR_LOAD)
                     pressed_widgets |= (1uLL << WIDX_LOAD_CHECKBOX);

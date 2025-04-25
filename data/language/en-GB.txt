@@ -3806,3 +3806,5 @@ STR_6758    :Loan options
 STR_6759    :Business model
 STR_6760    :Earnings:
 STR_6761    :Scenario Details
+# UI updating for 1 second waiting time
+STR_6762    :{COMMA16} Second

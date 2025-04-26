@@ -3573,19 +3573,9 @@ namespace OpenRCT2::Ui::Windows
                 ft.Rewind();
                 ft.Increment(10);
 
-                if (minWait == 1) {
-                    ft.Add<StringId>(STR_FORMAT_SECOND);
-                }
-                else {
-                    ft.Add<StringId>(STR_FORMAT_SECONDS);
-                }
+                ft.Add<StringId>(minWait == 1 ? STR_FORMAT_SECOND : STR_FORMAT_SECONDS);
                 ft.Add<uint16_t>(minWait);
-                if (maxWait == 1) {
-                    ft.Add<StringId>(STR_FORMAT_SECOND);
-                }
-                else {
-                    ft.Add<StringId>(STR_FORMAT_SECONDS);
-                }
+                ft.Add<StringId>(maxWait == 1 ? STR_FORMAT_SECOND : STR_FORMAT_SECONDS);
                 ft.Add<uint16_t>(maxWait);
 
                 if (ride->departFlags & RIDE_DEPART_WAIT_FOR_LOAD)
